@@ -1,43 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import src1 from './assets/1.jpg';
-import src2 from './assets/2.jpg';
-import src3 from './assets/3.jpg';
-import './assets/index.css'
 
+import Student from './Components/Student.js';
+import StudentList from './Components/StudentList.js';
 
-const srcArr = [src1, src2, src3];
-
-const container = document.getElementById('root');
-
-
-let index = 0;
-let timer;
-function render() {
-  ReactDOM.render(<img src={ srcArr[index] } alt=""/>, document.getElementById('root'));
+const appkey = 'zhouchao_1553863350625c';
+async function fetchAllStudent() {
+  var stus = await fetch('http://open.duyiedu.com/api/student/findAll?appkey=zhouchao_1553863350625')
+      .then(resp => resp.json()).then(resp => resp.data);
+  return stus;
 }
 
-function start() {
-  stop();
-  timer = setInterval(() => {
-    index = (index + 1) % 3;
-    render();
-  }, 2000);
+async function render() {
+  ReactDOM.render(<div>正在加载中....</div>, document.getElementById('root'));
+  const studentList = await fetchAllStudent();
+  ReactDOM.render(<StudentList studentList={studentList}/>, document.getElementById('root'))
 }
+
 render();
-start();
 
-function stop() {
-  clearInterval(timer);
-}
 
-container.onmouseenter = function() {
-  stop();
-};
-
-container.onmouseleave = function() {
-  start();
-};
 
 
 
