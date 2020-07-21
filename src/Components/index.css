@@ -1,0 +1,15 @@
+.item{
+    display: inline-block;
+    padding: 3px 6px;
+    background-color: #abcdef;
+    color: #fff;
+    margin: 7px;
+    cursor: pointer;
+}
+.disable{
+    color:#000;
+    cursor: not-allowed;
+    background-color:#fff;
+    border:1px solid #000;
+
+}
