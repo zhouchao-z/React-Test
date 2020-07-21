@@ -32,10 +32,12 @@ export default class Ball extends Component {
       }
 
       if(newTop <= 0) {
+        console.log(9);
         newTop = 0;
         this.setState({
           ySpeed: -this.state.ySpeed
         });
+      } else if(newTop >= document.documentElement.clientHeight - 100) {
         newTop = document.documentElement.clientHeight - 100;
         this.setState({
           ySpeed: -this.state.ySpeed
