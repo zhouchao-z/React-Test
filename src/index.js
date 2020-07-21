@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Tick from './Components/Tick.js';
-import Test from './Components/Test.js';
-// ReactDOM.render(<Tick number={20}/>, document.getElementById('root'));
-ReactDOM.render(<Test/>, document.getElementById('root'));
+
+import Ball from './Components/Ball.js';
+ReactDOM.render(<Ball bg="f40" xSpeed={300} ySpeed={300}/>, document.getElementById('root'));
 
 
 
